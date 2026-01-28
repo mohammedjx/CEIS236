@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Employee Time Lookup</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"
+      integrity="sha384-8kcl+qXPB82xH8DFGY25x+3mPEdgQ8E5rCTuuWJdiLNx3/2lIngltycX0PJ4gV5K"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <main class="page">
+      <header>
+        <h1>Employee Sick/Vacation Time Lookup</h1>
+        <p>
+          Upload an Excel or CSV sheet with employee name, employee number, sick
+          time, and vacation time columns to search availability.
+        </p>
+      </header>
+
+      <section class="card">
+        <div class="controls">
+          <label class="file-label" for="file-input">Upload spreadsheet</label>
+          <input
+            id="file-input"
+            type="file"
+            accept=".xlsx,.xls,.csv"
+            aria-describedby="file-help"
+          />
+          <span id="file-help" class="help">Supported: .xlsx, .xls, .csv</span>
+        </div>
+
+        <div class="controls">
+          <label class="search-label" for="search-input">Search</label>
+          <input
+            id="search-input"
+            type="search"
+            placeholder="Search by first name, last name, or employee number"
+            disabled
+          />
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Warnings</h2>
+        <div id="warning-panel" class="warning-panel">Upload a file to see warnings.</div>
+      </section>
+
+      <section class="card">
+        <h2>Results</h2>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Employee #</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Sick Time</th>
+                <th>Vacation Time</th>
+              </tr>
+            </thead>
+            <tbody id="results-body">
+              <tr>
+                <td colspan="5" class="placeholder">Upload a spreadsheet to view results.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
