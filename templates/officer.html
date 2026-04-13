@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="card">
+  <h2>Officer Shift View</h2>
+  <div class="officer">
+    <img src="{{ shift.photo_url or 'https://placehold.co/120x120?text=No+Photo' }}" alt="Officer photo" />
+    <div>
+      <p><strong>Full Name:</strong> {{ shift.first_name }} {{ shift.last_name }}</p>
+      <p><strong>NUID:</strong> {{ shift.nuid }}</p>
+      <p><strong>Badge ID:</strong> {{ shift.badge_id }}</p>
+      <p><strong>Shift Start:</strong> {{ shift.shift_start }} UTC</p>
+      <p><strong>Shift ID:</strong> {{ shift.id }}</p>
+    </div>
+  </div>
+
+  <form method="post" class="inline">
+    <input type="hidden" name="form_action" value="no_equipment" />
+    <button type="submit">Log No Equipment</button>
+  </form>
+
+  <hr />
+
+  <h3>QR Equipment Scanner</h3>
+  <form method="post" class="grid">
+    <label>QR Code <input name="qr_code" placeholder="Scan equipment QR" required /></label>
+    <div class="inline">
+      <button name="form_action" value="checkout" type="submit">Checkout</button>
+      <button name="form_action" value="checkin" type="submit">Checkin</button>
+    </div>
+  </form>
+
+  <form method="post">
+    <input type="hidden" name="form_action" value="end_shift" />
+    <button type="submit" class="danger">End Shift</button>
+  </form>
+</section>
+
+<section class="card">
+  <h3>Shift Transactions</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Time (UTC)</th>
+        <th>Action</th>
+        <th>QR Code</th>
+        <th>Label</th>
+        <th>Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in transactions %}
+      <tr>
+        <td>{{ row.action_time }}</td>
+        <td>{{ row.action }}</td>
+        <td>{{ row.qr_code }}</td>
+        <td>{{ row.label }}</td>
+        <td>{{ row.equipment_type }}</td>
+      </tr>
+      {% else %}
+      <tr><td colspan="5">No transactions yet.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endblock %}

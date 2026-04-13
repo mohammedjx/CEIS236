@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="card">
+  <h2>Register Equipment (QR)</h2>
+  <form method="post" class="grid">
+    <label>QR Code <input name="qr_code" required /></label>
+    <label>Label <input name="label" required /></label>
+    <label>Type
+      <select name="equipment_type">
+        <option value="radio">radio</option>
+        <option value="phone">phone</option>
+        <option value="key">key</option>
+        <option value="bodycam">bodycam</option>
+        <option value="other">other</option>
+      </select>
+    </label>
+    <button type="submit">Add Equipment</button>
+  </form>
+</section>
+
+<section class="card">
+  <h3>Equipment List</h3>
+  <table>
+    <tr><th>QR</th><th>Label</th><th>Type</th></tr>
+    {% for e in equipment %}
+    <tr><td>{{ e.qr_code }}</td><td>{{ e.label }}</td><td>{{ e.equipment_type }}</td></tr>
+    {% else %}
+    <tr><td colspan="3">No equipment loaded.</td></tr>
+    {% endfor %}
+  </table>
+</section>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="card">
+  <h2>Start Shift (Badge Scan)</h2>
+  <form method="post">
+    <label for="badge_id">Badge ID</label>
+    <input id="badge_id" name="badge_id" placeholder="Scan badge here" autofocus required />
+    <button type="submit">Start Shift</button>
+  </form>
+  <p class="hint">Tip: Barcode scanners usually type and submit like a keyboard.</p>
+</section>
+{% endblock %}

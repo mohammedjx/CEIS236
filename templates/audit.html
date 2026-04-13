@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="card">
+  <h2>Audit Reports</h2>
+  <form method="get" class="inline">
+    <label>Period
+      <select name="period">
+        <option value="shift" {% if period == 'shift' %}selected{% endif %}>shift</option>
+        <option value="day" {% if period == 'day' %}selected{% endif %}>day</option>
+        <option value="month" {% if period == 'month' %}selected{% endif %}>month</option>
+      </select>
+    </label>
+    <label>Value <input name="value" value="{{ value }}" placeholder="shift id, YYYY-MM-DD, YYYY-MM" /></label>
+    <button type="submit">Run</button>
+  </form>
+</section>
+
+<section class="card">
+  <table>
+    <thead>
+      <tr>
+        <th>Time</th><th>Shift</th><th>Officer</th><th>NUID</th><th>Badge</th>
+        <th>Action</th><th>QR</th><th>Label</th><th>Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for r in rows %}
+      <tr>
+        <td>{{ r.action_time }}</td>
+        <td>{{ r.shift_id }}</td>
+        <td>{{ r.full_name }}</td>
+        <td>{{ r.nuid }}</td>
+        <td>{{ r.badge_id }}</td>
+        <td>{{ r.action }}</td>
+        <td>{{ r.qr_code }}</td>
+        <td>{{ r.label }}</td>
+        <td>{{ r.equipment_type }}</td>
+      </tr>
+      {% else %}
+      <tr><td colspan="9">No data found for this filter.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endblock %}
