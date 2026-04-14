@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="card">
+  <h2>Register Officer</h2>
+  <form method="post" class="grid">
+    <label>Badge ID <input name="badge_id" value="{{ preset_badge }}" required /></label>
+    <label>First Name <input name="first_name" required /></label>
+    <label>Last Name <input name="last_name" required /></label>
+    <label>NUID <input name="nuid" required /></label>
+    <label>Photo URL <input name="photo_url" placeholder="https://..." /></label>
+    <button type="submit">Register Officer</button>
+  </form>
+</section>
+{% endblock %}
