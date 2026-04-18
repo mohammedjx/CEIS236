@@ -43,7 +43,8 @@ CREATE TABLE transactions (
 INSERT INTO officers (badge_id, first_name, last_name, nuid, photo_url)
 VALUES
     ('BADGE-1001', 'Alicia', 'Santos', 'N00123456', 'https://placehold.co/120x120?text=AS'),
-    ('BADGE-1002', 'Marcus', 'Lee', 'N00123457', 'https://placehold.co/120x120?text=ML');
+    ('BADGE-1002', 'Marcus', 'Lee', 'N00123457', 'https://placehold.co/120x120?text=ML')
+    ('\54222\', 'Jawad', 'Kadhim', '\O558994', 'https://placehold.co/400');
 
 INSERT INTO equipment (qr_code, label, equipment_type)
 VALUES
