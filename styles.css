@@ -1,0 +1,105 @@
+:root {
+  color-scheme: light;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  line-height: 1.5;
+  background: #f5f7fb;
+  color: #1f2933;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 20px 60px;
+}
+
+header {
+  margin-bottom: 24px;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 2rem;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 20px rgba(30, 41, 59, 0.08);
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+input[type="file"],
+input[type="search"] {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #cbd5f5;
+  font-size: 1rem;
+}
+
+input[type="search"]:disabled {
+  background: #f1f5f9;
+}
+
+.help {
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.warning-panel {
+  background: #fff7ed;
+  border: 1px solid #fdba74;
+  padding: 12px;
+  border-radius: 8px;
+  color: #9a3412;
+}
+
+.warning-panel.ok {
+  background: #ecfdf3;
+  border-color: #4ade80;
+  color: #166534;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.table-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+ td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+tbody tr.warning {
+  background: #fff1f2;
+}
+
+.placeholder {
+  text-align: center;
+  color: #94a3b8;
+}
